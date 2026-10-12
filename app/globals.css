@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 14 55% 92%;
+    --foreground: 350 65% 10%;
+
+    --card: 12 40% 96%;
+    --card-foreground: 350 65% 10%;
+
+    --primary: 350 70% 22%;
+    --primary-foreground: 14 55% 92%;
+
+    --secondary: 350 30% 82%;
+    --secondary-foreground: 350 65% 15%;
+
+    --muted: 12 30% 88%;
+    --muted-foreground: 350 10% 38%;
+
+    --accent: 355 48% 78%;
+    --accent-foreground: 350 65% 18%;
+
+    --border: 350 15% 82%;
+    --ring: 350 70% 22%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 350 75% 6%;
+    --foreground: 14 55% 88%;
+
+    --card: 350 70% 8%;
+    --card-foreground: 14 55% 88%;
+
+    --primary: 355 48% 78%;
+    --primary-foreground: 350 75% 6%;
+
+    --secondary: 350 45% 16%;
+    --secondary-foreground: 14 55% 92%;
+
+    --muted: 350 40% 12%;
+    --muted-foreground: 14 18% 62%;
+
+    --accent: 350 70% 22%;
+    --accent-foreground: 14 55% 92%;
+
+    --border: 350 25% 18%;
+    --ring: 355 48% 78%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-clip;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% 0%, hsl(350 60% 20% / 0.25), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, hsl(15 40% 20% / 0.18), transparent 70%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.4);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.04  0 0 0 0 0.05  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+  }
+  .bg-wine-gradient {
+    background:
+      linear-gradient(135deg, #1A0508 0%, #2A080C 40%, #3A0C12 100%);
+  }
+  .bg-curved {
+    border-bottom-left-radius: 40% 30%;
+    border-bottom-right-radius: 40% 30%;
+  }
+  .hairline {
+    @apply border border-foreground/10;
+  }
+  .serif-display {
+    @apply font-serif font-semibold leading-[1.05] tracking-tight;
+  }
+  .eyebrow {
+    @apply text-[11px] font-sans font-bold uppercase;
+    letter-spacing: 0.28em;
+  }
+  .divider-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-foreground/15 to-transparent;
+  }
+  .glass-luxe {
+    @apply bg-card/40 backdrop-blur-2xl border border-foreground/5;
+  }
+  .circular-text {
+    animation: spin 30s linear infinite;
+  }
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, hsl(var(--primary) / 0.45), hsl(var(--accent) / 0.35));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, hsl(var(--primary) / 0.65), hsl(var(--accent) / 0.5));
+}
