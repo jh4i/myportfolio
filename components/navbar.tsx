@@ -38,8 +38,9 @@ export function Navbar() {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.history.pushState(null, "", href);
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: "instant" });
     }
   };
 
@@ -129,7 +130,7 @@ export function Navbar() {
                   {theme === "dark" ? (
                     <Sun className="w-4 h-4 text-blush" strokeWidth={2} />
                   ) : (
-                    <Moon className="w-4 h-4 text-wine-700" strokeWidth={2} />
+                    <Moon className="w-4 h-4 text-blush" strokeWidth={2} />
                   )}
                 </motion.div>
               </AnimatePresence>
@@ -150,9 +151,12 @@ export function Navbar() {
             </a>
 
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
               className="lg:hidden p-2.5 rounded-full border border-cream/10 bg-wine-800/40 text-cream"
-              aria-label="Toggle menu"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {isOpen ? (
@@ -182,13 +186,14 @@ export function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              id="mobile-navigation"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="pb-8 pt-2 space-y-1 border-t border-blush/10 mt-2">
+              <div className="mb-4 mt-2 space-y-1 rounded-2xl border border-blush/15 bg-wine-900/95 p-2 shadow-[0_18px_48px_-16px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
                 {navLinks.map((link, i) => {
                   const isActive = activeSection === link.href.replace("#", "");
                   return (

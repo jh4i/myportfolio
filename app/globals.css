@@ -4,31 +4,6 @@
 
 @layer base {
   :root {
-    --background: 14 55% 92%;
-    --foreground: 350 65% 10%;
-
-    --card: 12 40% 96%;
-    --card-foreground: 350 65% 10%;
-
-    --primary: 350 70% 22%;
-    --primary-foreground: 14 55% 92%;
-
-    --secondary: 350 30% 82%;
-    --secondary-foreground: 350 65% 15%;
-
-    --muted: 12 30% 88%;
-    --muted-foreground: 350 10% 38%;
-
-    --accent: 355 48% 78%;
-    --accent-foreground: 350 65% 18%;
-
-    --border: 350 15% 82%;
-    --ring: 350 70% 22%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
     --background: 350 75% 6%;
     --foreground: 14 55% 88%;
 
@@ -49,6 +24,57 @@
 
     --border: 350 25% 18%;
     --ring: 355 48% 78%;
+
+    --radius: 0.5rem;
+
+    --color-cream: 249 232 225;
+    --color-cream-muted: 235 212 202;
+    --color-blush: 232 180 184;
+    --color-blush-deep: 200 125 135;
+    --color-wine-900: 26 5 8;
+    --color-wine-800: 42 8 12;
+    --color-wine-700: 58 12 18;
+    --color-wine-600: 74 16 23;
+    --color-wine-500: 94 21 32;
+    --color-chocolate-900: 28 14 11;
+    --color-chocolate-800: 42 22 18;
+    --color-chocolate-700: 56 29 25;
+  }
+
+  .light {
+    --background: 14 55% 96%;
+    --foreground: 350 55% 15%;
+
+    --card: 12 40% 99%;
+    --card-foreground: 350 55% 15%;
+
+    --primary: 350 48% 38%;
+    --primary-foreground: 14 55% 96%;
+
+    --secondary: 350 24% 88%;
+    --secondary-foreground: 350 55% 18%;
+
+    --muted: 12 30% 91%;
+    --muted-foreground: 350 16% 38%;
+
+    --accent: 350 36% 82%;
+    --accent-foreground: 350 55% 18%;
+
+    --border: 350 18% 83%;
+    --ring: 350 48% 38%;
+
+    --color-cream: 49 22 30;
+    --color-cream-muted: 91 66 69;
+    --color-blush: 145 55 75;
+    --color-blush-deep: 166 78 91;
+    --color-wine-900: 255 250 247;
+    --color-wine-800: 250 241 237;
+    --color-wine-700: 241 225 220;
+    --color-wine-600: 231 207 204;
+    --color-wine-500: 221 182 183;
+    --color-chocolate-900: 249 241 235;
+    --color-chocolate-800: 241 226 218;
+    --color-chocolate-700: 233 210 200;
   }
 }
 
@@ -59,12 +85,20 @@
   html {
     scroll-behavior: smooth;
   }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-clip;
     background-image:
       radial-gradient(ellipse 80% 50% at 20% 0%, hsl(350 60% 20% / 0.25), transparent 70%),
       radial-gradient(ellipse 60% 50% at 80% 100%, hsl(15 40% 20% / 0.18), transparent 70%);
     background-attachment: fixed;
+  }
+  .light body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% 0%, hsl(350 48% 48% / 0.09), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, hsl(15 42% 50% / 0.07), transparent 70%);
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
@@ -86,7 +120,36 @@
   }
   .bg-wine-gradient {
     background:
-      linear-gradient(135deg, #1A0508 0%, #2A080C 40%, #3A0C12 100%);
+      linear-gradient(
+        135deg,
+        rgb(var(--color-wine-900)) 0%,
+        rgb(var(--color-wine-800)) 40%,
+        rgb(var(--color-wine-700)) 100%
+      );
+  }
+  .light .bg-noise {
+    opacity: 0.14;
+  }
+  .light [class~="text-cream/25"],
+  .light [class~="text-cream/30"],
+  .light [class~="text-cream/35"],
+  .light [class~="text-cream/40"],
+  .light [class~="text-cream/45"],
+  .light [class~="text-cream/50"],
+  .light [class~="text-cream/55"],
+  .light [class~="text-cream/60"] {
+    color: rgb(var(--color-cream) / 0.62);
+  }
+  .light [class~="placeholder:text-cream/30"]::placeholder {
+    color: rgb(var(--color-cream) / 0.62);
+  }
+  .light [class~="text-blush/40"],
+  .light [class~="text-blush/60"],
+  .light [class~="text-blush/70"],
+  .light [class~="text-blush/75"],
+  .light [class~="text-blush/80"],
+  .light [class~="text-blush/85"] {
+    color: rgb(var(--color-blush) / 0.88);
   }
   .bg-curved {
     border-bottom-left-radius: 40% 30%;

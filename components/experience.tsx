@@ -19,7 +19,14 @@ const experience: ExperienceEntry[] = [
     title: "Bachelor of Science in Information Technology",
     period: "2023 — Present",
     description:
-      "Currently pursuing a degree in Information Technology with a focus on software and web development. Knowledgeable in basic web development with an interest in creating responsive, user-friendly, and visually engaging websites. Experienced in project coordination, UI/UX design, system flow diagramming, documentation, and quality assurance testing. Developing skills in programming and database management.",
+      "Pursuing a Bachelor of Science in Information Technology with a focus on software development, web technologies, and database management. Developing practical skills in programming, system analysis and design, UI/UX design, technical documentation, and software testing through academic projects and hands-on development.",
+  },
+  {
+    category: "On-the-Job Training",
+    organization: "San Roque Supermarket Retail Systems, Inc.",
+    title: "On-the-Job Training",
+    period: "Sept 2026 — Feb 2027",
+    description: "Gaining practical experience in backend development using NestJS and TypeScript, database operations with MySQL, and system data validation. Applying programming concepts through CRUD operations, database transactions, scheduled tasks, and system data management.",
   },
   {
     category: "Seminar & Training",
@@ -27,7 +34,7 @@ const experience: ExperienceEntry[] = [
     title: "Artificial Intelligence in Education: How Students Can Use AI Responsibly",
     period: "April 2026",
     description:
-      "Learned responsible and ethical use of AI in education and exploring AI tools for learning and academic tasks.",
+      "Explored the responsible and ethical use of artificial intelligence in academic environments, including AI-assisted learning and information verification. Emphasized academic integrity, critical thinking, and the appropriate use of AI as a learning support tool.",
   },
   {
     category: "Seminar & Training",
@@ -35,13 +42,7 @@ const experience: ExperienceEntry[] = [
     title: "Understanding MVC Architecture: Building Dynamic Web Applications the Right Way",
     period: "July 2025",
     description:
-      "Learned the fundamentals of MVC architecture and understood its application in structured web development.",
-  },
-  {
-    category: "On-the-Job Training",
-    organization: "San Roque retails supermarket",
-    title: "On-the-Job Training",
-    period: "Sept 2026 — Feb 2027",
+      "Gained foundational knowledge of Model–View–Controller (MVC) architecture and its application in structured web development. Learned how separating application logic, user interfaces, and data handling improves code organization, maintainability, and scalability.",
   },
 ];
 

@@ -77,7 +77,6 @@ export function About() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-wine-900/70 via-wine-900/10 to-transparent" />
                     <div className="absolute top-5 left-5 eyebrow text-blush/90">
-                      — Plate N° 01
                     </div>
                   </div>
                   <div className="w-16 hidden sm:block">

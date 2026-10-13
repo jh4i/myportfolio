@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+// @ts-ignore - CSS imports are resolved by Next.js at build/runtime.
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 

@@ -49,7 +49,7 @@ export function Hero() {
               variants={fadeUp}
               className="serif-display text-cream text-[14vw] sm:text-7xl md:text-[6.5rem] lg:text-[7rem] xl:text-[8rem] leading-[0.92] tracking-tight"
             >
-              Designing
+              Developing
               <br />
               with&nbsp;
               <span className="italic font-serif text-blush relative inline-block">
@@ -137,7 +137,7 @@ export function Hero() {
           >
             <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blush/15 via-blush-deep/10 to-wine-600/20 blur-2xl" />
             <div className="hidden sm:block absolute -right-1 sm:-right-6 -top-8 z-20 w-28 h-28">
-              <CircularText text="Designing with Purpose &amp; Precision.  —  " />
+              <CircularText text="Developing with Purpose &amp; Precision.  —  " />
             </div>
 
             <div className="relative">
@@ -152,13 +152,10 @@ export function Hero() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-wine-900 via-wine-900/20 to-transparent" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,180,184,0.12),transparent_55%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_5%,rgba(232,180,184,0.12),transparent_90%)]" />
 
                 <div className="absolute top-5 left-5 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-blush shadow-[0_0_12px_2px_rgba(232,180,184,0.5)]" />
-                  <span className="text-[10px] font-sans uppercase tracking-editorial text-blush/90">
-                    Portrait N° 04
-                  </span>
                 </div>
 
                 <div className="absolute bottom-0 inset-x-0 p-6">

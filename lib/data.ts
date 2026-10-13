@@ -18,7 +18,7 @@ export const personalInfo = {
   firstName: "Johaina",
   title: "Backend Developer",
   tagline:
-    "Designing with purpose and precision. Developing thoughtful software solutions through clean architecture, reliable systems, and purposeful digital experiences.",
+    "Developing thoughtful software solutions through clean architecture, reliable systems, and purposeful digital experiences.",
   location: "Quezon City, Philippines",
   email: "banalan.johaina.salunayan@gmail.com",
   bio: `Building thoughtful solutions through clean code, purposeful design, and a passion for solving real-world problems. From intuitive interfaces to reliable backend systems, I turn ideas into functional digital experiences using modern web technologies.`,
@@ -160,7 +160,7 @@ export const projects = [
       "A map-based commuting platform that recommends jeepney, bus, and UV Express routes — helping Filipino commuters identify the right signboards, boarding points, drop-off locations, and step-by-step directions to their destinations.",
     image:
       "/img4.jpg",
-    tags: ["Route Recommendation", "Map Navigation", "Commute Guide"],
+    tags: ["Route Recommendation", "Map Navigation", "Commute Guide", "Public Transportation"],
     category: "Wellness",
     year: "102026",
     role: "Full Stack Development",
@@ -169,13 +169,13 @@ export const projects = [
   {
     id: 5,
     title: "Dokumatik",
-    subtitle: "Dokumatik — AI-Powered Document Management and Verification System",
+    subtitle: "Dokumatik — An Intelligent Business Permit Requirements Validation and Record Duplication Detection System for Quezon City Enterprises.",
     description:
       "An AI-powered document verification platform that extracts information, detects inconsistencies, identifies duplicate records, and validates related documents to help businesses streamline document review and reduce manual errors.",
     image:
       "/img5.jpg",
     tags: ["React", "Typescript", "NestJS ", "MySQL", "OCR", "AI Integration"],
-    category: "Lifestyle",
+    category: "AI & Automation",
     year: "102026",
     role: "Full-Stack Development · Artificial Intelligence",
     featured: false,

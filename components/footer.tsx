@@ -85,7 +85,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <span className="mt-0.5 w-1 h-1 rounded-full bg-blush/70 shrink-0" />
                 <a href={`mailto:${personalInfo.email}`} className="hover:text-blush transition-colors">
-                  <span className="block font-serif text-cream text-base mb-0.5">Correspondance</span>
+                  <span className="block font-serif text-cream text-base mb-0.5">Correspondence</span>
                   {personalInfo.email}
                 </a>
               </li>

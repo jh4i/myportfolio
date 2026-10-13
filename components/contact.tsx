@@ -243,7 +243,7 @@ export function Contact() {
                   {status === "success" && (
                     <>
                       <CheckCircle className="w-5 h-5" strokeWidth={2.3} />
-                      Sent — Merci Beaucoup
+                      Sent — Thank you very much!
                     </>
                   )}
                 </button>
