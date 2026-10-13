@@ -109,7 +109,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           </Link>
         </header>
 
-        <article className="mx-auto max-w-7xl px-6 pb-16 pt-10 sm:pb-24 sm:pt-14 lg:px-10 lg:pt-20">
+        <article className="mx-auto max-w-7xl px-6 pb-16 pt-2 sm:pb-24 sm:pt-4 lg:px-10 lg:pt-6">
           <div className="mx-auto max-w-5xl">
             <p className="eyebrow mb-5 text-blush/75">
               JB / Selected Projects

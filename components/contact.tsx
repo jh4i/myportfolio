@@ -20,18 +20,39 @@ export function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.12 });
   const [status, setStatus] = useState<Status>("idle");
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
+    const formElement = e.currentTarget;
+    if (!formElement.reportValidity()) return;
+
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1700));
-    setStatus("success");
-    setTimeout(() => {
-      setStatus("idle");
-      setForm({ name: "", email: "", subject: "", message: "" });
-    }, 4000);
+    try {
+      const response = await fetch(formElement.action, {
+        method: "POST",
+        body: new FormData(formElement),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      setForm({ name: "", phone: "", email: "", subject: "", message: "" });
+      formElement.reset();
+      window.setTimeout(() => setStatus("idle"), 4000);
+    } catch {
+      setStatus("error");
+    }
   };
 
   const contactCards = [
@@ -70,7 +91,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_0%,rgba(232,180,184,0.08),transparent_70%)]" />
       <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-[radial-gradient(ellipse_80%_80%_at_100%_100%,rgba(200,125,135,0.08),transparent_70%)]" />
 
@@ -154,6 +175,8 @@ export function Contact() {
             </motion.div>
 
             <motion.form
+              action="https://formspree.io/f/xgaoljlg"
+              method="POST"
               variants={{
                 hidden: { opacity: 0, x: 30 },
                 show: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.2 } },
@@ -181,6 +204,7 @@ export function Contact() {
                     type="text"
                     placeholder="Johaina Banalan"
                     value={form.name}
+                    name="name"
                     onChange={(v) => setForm({ ...form, name: v })}
                     required
                   />
@@ -188,13 +212,24 @@ export function Contact() {
                     label="Email"
                     id="email"
                     type="email"
-                    placeholder="banalan.johaina.salunayan2gmail.com"
+                    placeholder="you@example.com"
                     value={form.email}
+                    name="email"
                     onChange={(v) => setForm({ ...form, email: v })}
                     required
                   />
                 </div>
-
+                <div className="mb-5">
+                  <Field
+                    label="Phone Number (Optional)"
+                    id="phone"
+                    type="tel"
+                    placeholder="+country code and number"
+                    value={form.phone}
+                    name="phone"
+                    onChange={(v) => setForm({ ...form, phone: v })}
+                  />
+                </div>
                 <div className="mb-5">
                   <Field
                     label="Subject"
@@ -202,16 +237,17 @@ export function Contact() {
                     type="text"
                     placeholder="Software Development · Project Collaboration"
                     value={form.subject}
+                    name="subject"
                     onChange={(v) => setForm({ ...form, subject: v })}
                   />
                 </div>
-
                 <div className="mb-7">
                   <LabelText htmlFor="message">
                     Your Letter <span className="text-blush">*</span>
                   </LabelText>
                   <textarea
                     id="message"
+                    name="message"
                     rows={6}
                     required
                     placeholder="Tell me about your project, technical requirements, or collaboration idea. Share the details, goals, and vision you'd like to bring to life."
@@ -246,6 +282,12 @@ export function Contact() {
                       Sent — Thank you very much!
                     </>
                   )}
+                  {status === "error" && (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Sending failed — Please try again
+                    </>
+                  )}
                 </button>
 
                 {status === "success" && (
@@ -256,6 +298,11 @@ export function Contact() {
                   >
                     Your letter has been sealed in wax. I shall reply within the day.
                   </motion.p>
+                )}
+                {status === "error" && (
+                  <p role="alert" className="mt-5 text-center text-sm text-blush">
+                    Your letter could not be sent. Please try again in a moment.
+                  </p>
                 )}
 
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-blush/15 to-transparent" />
@@ -294,6 +341,7 @@ function Field({
   type,
   placeholder,
   value,
+  name,
   onChange,
   required,
 }: {
@@ -302,6 +350,7 @@ function Field({
   type: string;
   placeholder?: string;
   value: string;
+  name: string;
   onChange: (v: string) => void;
   required?: boolean;
 }) {
@@ -312,6 +361,7 @@ function Field({
       </LabelText>
       <input
         id={id}
+        name={name}
         type={type}
         required={required}
         placeholder={placeholder}

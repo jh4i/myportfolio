@@ -51,7 +51,7 @@ export function Experience() {
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="experience" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden bg-wine-gradient">
+    <section id="experience" className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden bg-wine-gradient">
       <div className="absolute inset-0 bg-noise opacity-50 pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blush/20 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(200,125,135,0.08),transparent_70%)]" />

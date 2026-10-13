@@ -55,6 +55,27 @@ export function About() {
             show: { transition: { staggerChildren: 0.1 } },
           }}
         >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+            }}
+            className="mb-10"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-10 bg-blush/50" />
+              <span className="eyebrow text-blush">About me</span>
+            </div>
+            <h2 className="serif-display text-4xl sm:text-5xl md:text-6xl xl:text-[4.2rem] leading-[1.02] tracking-tight">
+              Where logic meets
+              <br />
+              <span className="italic font-serif text-blush">creativity,</span>{" "}
+              and codes
+              <br />
+              <span className="italic font-serif text-cream/85">becomes craft.</span>
+            </h2>
+          </motion.div>
+
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 xl:gap-24 items-center">
             <motion.div
               variants={{
@@ -119,26 +140,6 @@ export function About() {
             </motion.div>
 
             <div>
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 24 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-                }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="h-px w-10 bg-blush/50" />
-                  <span className="eyebrow text-blush">About me</span>
-                </div>
-                <h2 className="serif-display text-4xl sm:text-5xl md:text-6xl xl:text-[4.2rem] leading-[1.02] tracking-tight mb-8">
-                  A practice rooted in
-                  <br />
-                  <span className="italic font-serif text-blush">heritage,</span>{" "}
-                  finished like
-                  <br />
-                  <span className="italic font-serif text-cream/85">haute couture.</span>
-                </h2>
-              </motion.div>
-
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 24 },

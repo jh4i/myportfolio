@@ -133,7 +133,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.92, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto xl:mx-0 w-full max-w-md xl:max-w-lg"
+            className="relative mx-auto w-full max-w-sm justify-self-center xl:mx-0 xl:max-w-md xl:justify-self-start"
           >
             <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blush/15 via-blush-deep/10 to-wine-600/20 blur-2xl" />
             <div className="hidden sm:block absolute -right-1 sm:-right-6 -top-8 z-20 w-28 h-28">
@@ -149,6 +149,7 @@ export function Hero() {
                   fill
                   sizes="(max-width: 1024px) 75vw, 480px"
                   className="object-cover opacity-95"
+                  style={{ objectPosition: "center center" }}
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-wine-900 via-wine-900/20 to-transparent" />

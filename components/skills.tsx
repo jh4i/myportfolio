@@ -9,7 +9,7 @@ export function Skills() {
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="skills" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="skills" className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-wine-900/40" />
       <div className="absolute inset-0 bg-noise opacity-50 pointer-events-none" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blush/20 to-transparent" />

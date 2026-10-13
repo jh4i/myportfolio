@@ -27,7 +27,7 @@ export function Projects() {
   );
 
   return (
-    <section id="projects" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="projects" className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(232,180,184,0.06),transparent_70%)]" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
@@ -131,26 +131,27 @@ export function Projects() {
                       featured ? "xl:col-span-2" : ""
                     )}
                   >
-                    <div
-                      className={cn(
-                        "relative grid gap-0",
-                        featured ? "lg:grid-cols-[1.2fr_0.8fr] lg:min-h-[520px]" : "grid-rows-[auto_1fr]"
-                      )}
-                    >
+                    <div className={cn(
+                      "relative grid gap-0",
+                      !featured && "grid-rows-[auto_1fr]"
+                    )}>
                       <div
                         className={cn(
                           "relative overflow-hidden",
-                          featured ? "aspect-[16/10] lg:aspect-auto lg:min-h-[520px]" : "aspect-[16/11]"
+                          featured ? "aspect-[16/10]" : "aspect-[16/11]"
                         )}
                       >
                         <Image
                           src={project.image}
                           alt={project.title}
                           fill
-                          sizes={featured ? "(max-width: 1024px) 100vw, 60vw" : "(max-width: 768px) 100vw, 40vw"}
+                          sizes={featured ? "(max-width: 1280px) 100vw, 1200px" : "(max-width: 768px) 100vw, 40vw"}
                           className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-tr from-wine-900/85 via-wine-900/30 to-transparent" />
+                        <div className={cn(
+                          "absolute inset-0 bg-gradient-to-t from-wine-900/85 via-wine-900/30 to-transparent",
+                          !featured && "lg:bg-gradient-to-tr"
+                        )} />
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_100%,rgba(232,180,184,0.12),transparent_55%)]" />
 
                         <div className="absolute top-5 left-5 flex items-center gap-2.5">
@@ -165,22 +166,28 @@ export function Projects() {
                           </span>
                         </div>
 
-                        <div className="absolute bottom-5 left-5 right-5 lg:hidden">
+                        <div className={cn(
+                          "absolute bottom-5 left-5 right-5",
+                          !featured && "lg:hidden"
+                        )}>
                           <MiniMeta project={project} />
                         </div>
                       </div>
 
                       <div className={cn(
-                        "relative flex flex-col bg-gradient-to-b lg:bg-gradient-to-br from-wine-900 via-wine-800/80 to-chocolate-900",
-                        featured ? "p-4 sm:p-8 lg:p-14" : "p-4 sm:p-6 lg:p-7"
+                        "relative flex flex-col bg-gradient-to-b from-wine-900 via-wine-800/80 to-chocolate-900",
+                        !featured && "lg:bg-gradient-to-br",
+                        featured ? "p-4 sm:p-8 lg:p-10" : "p-4 sm:p-6 lg:p-7"
                       )}>
                         <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-blush/30 to-transparent" />
                         <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none mix-blend-overlay" />
 
                         <div className="relative flex-1 flex flex-col">
-                          <div className="hidden lg:block mb-8">
-                            <MiniMeta project={project} />
-                          </div>
+                          {!featured && (
+                            <div className="hidden lg:block mb-8">
+                              <MiniMeta project={project} />
+                            </div>
+                          )}
 
                           <div className="mb-4 flex min-w-0 items-start justify-between gap-4 sm:mb-5 sm:gap-6">
                             <h3 className="serif-display min-w-0 break-words text-2xl leading-[1.02] tracking-tight text-cream sm:text-4xl lg:text-5xl">
